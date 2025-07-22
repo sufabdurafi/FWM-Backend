@@ -188,3 +188,21 @@ http://localhost:8000/api/
 ## Integrasi Frontend
 
 Frontend (misal: Vue) dapat langsung konsumsi endpoint di atas untuk operasi CRUD dan upload file.
+
+## Deploy ke Railway (Docker)
+
+1. Pastikan file `Dockerfile` sudah ada di root project.
+2. Push project ke repository GitHub.
+3. Di Railway, buat project baru dan hubungkan ke repository ini.
+4. Railway akan otomatis mendeteksi Dockerfile dan membuild container.
+5. Set environment variable database (misal: DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD) di Railway sesuai kebutuhan.
+6. Jalankan migrasi database di Railway console:
+    ```
+    php artisan migrate --force
+    ```
+7. Aplikasi Laravel akan berjalan di port 8000 (default Railway).
+
+Login admin:
+
+-   Email: admin@flywithus.com
+-   Password: admin123
